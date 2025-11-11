@@ -6,14 +6,16 @@ getUser(1, (user) => {
     });
 });
 
-function getUser(id, callback) {
-    setTimeout(() => {
-        console.log("Reading a user from DB...");
-        callback({
-            id: id,
-            githubUsername: "ansarstellar",
-        });
-    }, 2000);
+function getUser(id) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log("Reading a user from DB...");
+            resolve({
+                id: id,
+                githubUsername: "ansarstellar",
+            });
+        }, 2000);
+    });
 }
 
 function getRepos(username, callback) {
